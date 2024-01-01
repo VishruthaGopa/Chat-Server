@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /*
+      Thanks Cuneyt Celebican (2406 fall 2017) for the @media style sheet
+    */
+
+    @media (max-width: 1500px) {
+      body {
+        font-family: sans-serif;
+        font-size: 1.4em;
+        padding: 15px;
+        margin: 0px;
+      }
+      div#messages>div {
+        background: #e8e8e8;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border-bottom: 1px solid #fafafa;
+      }
+      /*div#messages>div:first-child {
+        background: #fff;
+        margin-bottom: 20px;
+        padding: 0px; 
+      }*/
+      div#messages>div:last-child {
+        margin-bottom: 20px;
+      }
+      div#messages>div:nth-child(odd) {
+        margin-left: 60px;
+      }
+      div#messages>div:nth-child(even) {
+        margin-right: 60px;
+      }
+      input#msgBox {
+        width: -webkit-calc(100% - 24px);
+        width: -moz-calc(100% - 24px);
+        width: calc(100% - 24px);
+        display: block;
+        padding: 10px;
+      }
+      input#connectBox {
+        width: -webkit-calc(20% - 12px);
+        width: -moz-calc(20% - 12px);
+        width: calc(20% - 12px);
+        padding: 10px;
+        margin-top: 40px;
+      }
+
+      input[type="button"] {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        background: #0a86e6;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 10px 5px;
+      }
+      input.small-button {
+        width: 100px;
+        height: 30px;
+        font-size: 12px; 
+        padding: 5px;
+      }
+      #introMessage {
+        font-size: large;
+        font-weight: bold;
+        font-family: "Courier", Monospace;
+        color: black;
+        margin: 0;
+        line-height: 1;
+        margin-top: 10px;
+      }
+      #successMessage {
+        font-size: large;
+        font-weight: bold;
+        font-family: "Courier", Monospace;
+        color: green;
+        margin: 0;
+        line-height: 1;
+        margin-top: 10px;
+      }
+      .own-message {
+        color: blue;
+      }
+
+      .sender-message {
+        color: black;
+      }
+      .private-message {
+        color: red;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  Messages:
+  <div id='messages'></div>
+  <input type='text' placeholder='Send a message' id='msgBox'>
+  <input type='button' id="send_button" value='Send'>
+  <input type='button' id="clear_button" class="small-button" value='Clear'>
+
+  <input type="text" placeholder="Enter your username" id="connectBox">
+  <input type='button' id="connect_button" class="small-button" value='Connect As'>
+  <div id="introMessage"></div>
+  <div id="successMessage"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src='chatClient.js'></script>
+  <script src='eventListeners.js'></script>
+
+</body>
+</html>
